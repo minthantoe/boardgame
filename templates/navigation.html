@@ -1,0 +1,36 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   <a class="navbar-brand" href="{% url 'home' %}">Home</a>
+   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+         <div class ="dropdown active">
+           <a class="nav-link" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Chess</a>
+           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+             <a class="dropdown-item" href="{% url 'chess' %}">Game</a>
+             <a class="dropdown-item" href="{% url 'chess_history' %}">Game History</a>
+           </div>
+         </div>
+         <div class ="dropdown active">
+           <a class="nav-link" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Checkers</a>
+           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+             <a class="dropdown-item" href="{% url 'checkers' %}">Game</a>
+             <a class="dropdown-item" href="{% url 'checkers_history' %}">Game History</a>
+           </div>
+         </div>
+         <li class="nav-item active">
+            <a class="nav-link" href="{% url 'about' %}">About</a>
+         </li>
+         <li class="nav-item active">
+            <a class="nav-link" href="/api/v1/" target="_blank">REST API</a>
+         </li>
+   </div>
+   {% if user.is_authenticated %}
+   <form action="/logout/">{% csrf_token %}
+     <button type="submit" class="btn btn-outline-success my-2 my-sm-0" value = "Logout">Logout</button>
+   </form>
+   {%else%}
+   <form action="/login/">{% csrf_token %}
+     <button type="submit" class="btn btn-outline-success my-2 my-sm-0" value = "Login" ref="{% url 'join' %}">Login</button>
+   </form>
+   {% endif %}
+</nav>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   {% load static %}
+   <meta charset="utf-8">
+   <title>Login</title>
+   {% include "bootstrap.html" %}
+</head>
+
+<body>
+  {% include "navigation.html" %}
+  <div class="container">
+    <div class = "jumbotron">
+      <h1>Login</h1>
+      <form action="/login/" method="POST">
+        <table>
+          {{ login_form.as_table }}
+          {% csrf_token %}
+          <input type="hidden" name="next" value="{{ request.GET.next }}">
+        </table>
+        <input type="submit" class="btn btn-primary" value = "Login"/>
+      </form>
+      <br/>
+      If you don't already have a username and password, join <a href="/join">here</a>.
+    </div>
+  </div>
+</body>
+</html>

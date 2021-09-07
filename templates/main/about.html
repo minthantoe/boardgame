@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+   <meta charset="utf-8">
+   <title>About</title>
+   {% include "bootstrap.html" %}
+</head>
+
+<body>
+  {% include "navigation.html" %}
+   <h1 style="text-align:center">About Me</h2>
+   <div class="container text-center">
+     <p><img src="{% static "img/me.JPG" %}"></p>
+   </div>
+   <div class="container text-center">
+   <p>Hello there! :) I'm Min Toe, and I'm a computer scientist currently going
+       through my junior year at Chico State University. I plan to graduate either
+       next Fall or Spring, and fingers crossed, the job market is not too horrendous
+       to enter into.</pr>
+ </div>
+</body>
+
+</html>
